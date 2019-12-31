@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 
-// import styles from './style';
+import AppContainer from "~/components/AppContainer";
+
+import { Container } from "./style";
 
 class Welcome extends Component {
   render() {
-    return <div>TESTE WELCOME</div>;
+    return (
+      <AppContainer>
+        <Container>TESTE</Container>
+      </AppContainer>
+    );
   }
 }
 
