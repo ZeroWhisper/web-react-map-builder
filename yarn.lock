@@ -6411,7 +6411,7 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-matter-js@^0.14.2:
+matter-js@^0.14.0, matter-js@^0.14.2:
   version "0.14.2"
   resolved "https://registry.yarnpkg.com/matter-js/-/matter-js-0.14.2.tgz#8169af9e06fdc356ba9e72b49624eb329839883b"
   integrity sha512-3ttVT8cJlQnGRjBa8MyVrGyvGmnmOkZ3YsyemIw+KwEEdVi70mo32FH1Eta2b3GfdDJFbMDRqyMQt4heNKBUEA==
@@ -8551,6 +8551,13 @@ react-game-engine@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/react-game-engine/-/react-game-engine-0.2.1.tgz#c5e8637cb9fc82442e0dd29ba761dd5da0fd2364"
   integrity sha512-/fpwitEyGQMWL3n/+d48nWnuXqktZ9a/c+LWq5/0SJw6AXNFnpFCaSYWLnk2tABd89EKcXC+BtbTpzg7VDwLJA==
+
+react-game-kit@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/react-game-kit/-/react-game-kit-1.0.6.tgz#fa12c847fe00982000a496b726fd6fdaca95d3ec"
+  integrity sha512-EUeGBG3h6B3M+yWv7wQaPttrhjNOp5cKgH+UUTT1yFZihvjNG1PX3k3Cs1Exwelnvy28uZUz9DullS1O14kvCA==
+  dependencies:
+    matter-js "^0.14.0"
 
 react-is@^16.6.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.12.0"
