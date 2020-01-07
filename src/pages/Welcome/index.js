@@ -6,6 +6,8 @@ import Actor from "./components/Actor";
 
 import { Container } from "./style";
 
+import GameEngine from "~/engine";
+
 class Welcome extends Component {
   render() {
     return (
@@ -20,9 +22,7 @@ class Welcome extends Component {
                   scale: 0.001
                 }}
               >
-                <Body>
-                  <Actor />
-                </Body>
+                <Actor />
               </World>
             </Stage>
           </Loop>

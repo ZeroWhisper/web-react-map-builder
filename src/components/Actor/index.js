@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Body } from "react-game-kit";
 
 import { Content } from "./style";
 
@@ -42,11 +41,7 @@ class Actor extends Component {
   }
 
   render() {
-    return (
-      <Body ref={e => (this.physics = e)}>
-        <Content {...this.state} />
-      </Body>
-    );
+    return <Content {...this.state} />;
   }
 }
 
