@@ -13,6 +13,8 @@ node_modules
 /build
 
 # misc
+**/2*
+.history
 .DS_Store
 .env.local
 .env.development.local
