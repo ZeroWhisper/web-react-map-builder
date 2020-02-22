@@ -1,16 +1,16 @@
-import React from "react";
-import { Button, Container } from "react-nes-component";
+import React from 'react';
+import { Button, Container } from 'react-nes-component';
 
-import AppContainer from "~/components/AppContainer";
-import AppHeader from "~/components/AppHeader";
-import AppBody from "~/components/AppBody";
+import AppContainer from '~/components/AppContainer';
+import AppHeader from '~/components/AppHeader';
+import AppBody from '~/components/AppBody';
 
 const Main = props => {
   return (
     <AppContainer>
-      {/* <AppHeader>
+      <AppHeader>
         <Container>HEADER</Container>
-      </AppHeader> */}
+      </AppHeader>
       <AppBody>
         <Container>
           <Button>TESTE</Button>
