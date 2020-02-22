@@ -1,8 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import GlobalStyle from "~/styles/global";
+import './config/reactotron';
 
-import Main from "~/pages/Main";
+import GlobalStyle from '~/styles/global';
+
+import Main from '~/pages/Main';
 
 function App() {
   return (
