@@ -11,7 +11,7 @@ const TrelloClone = () => {
     <AppContainer>
       <Content>
         <Column column={'Teste1'} />
-        <Column column={'Teste2'} />
+        {/* <Column column={'Teste2'} /> */}
       </Content>
     </AppContainer>
   );

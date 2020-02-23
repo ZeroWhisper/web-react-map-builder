@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Content } from './style';
 
-const Task = ({ position, column }) => {
+const Task = ({ item = {}, position, column }) => {
   function handleDrag(e) {
     const { position, column } = e.target.dataset;
     const obj = JSON.stringify({ position, column });
@@ -16,9 +16,10 @@ const Task = ({ position, column }) => {
       data-column={column}
       data-position={position}
       onDragStart={handleDrag}
-      draggable
-      color={hex()}>
-      Sou uma task {position}
+      color={'white'}
+      draggable>
+      {position} {item.title || null} <br />
+      {item.message || null}
     </Content>
   );
 };
@@ -28,4 +29,8 @@ const hex = () => {
   return `#${r()}${r()}${r()}`;
 };
 
+// const mapDispatchToProps = dispatch =>
+//   bindActionCreators({ taskRequest: TaskCreators.taskRequest }, dispatch);
+
+// export default connect(null)(Task);
 export default Task;

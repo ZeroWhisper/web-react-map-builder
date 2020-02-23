@@ -1,6 +1,9 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 
 import './config/reactotron';
+import './service/firebase';
+import store from './store';
 
 import GlobalStyle from '~/styles/global';
 
@@ -9,10 +12,10 @@ import TrelloClone from '~/pages/TrelloClone';
 
 function App() {
   return (
-    <>
+    <Provider store={store}>
       <GlobalStyle />
       <TrelloClone />
-    </>
+    </Provider>
   );
 }
 

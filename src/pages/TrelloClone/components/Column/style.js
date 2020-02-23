@@ -19,9 +19,19 @@ export const ShowColumn = styled.div`
   padding: 10px;
 `;
 
-export const Title = styled.h3`
+export const Header = styled.div`
+  display: flex;
+  height: 80px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const Title = styled.h2`
   color: steelblue;
 `;
+
+export const Add = styled.button``;
 
 export const Space = styled.div`
   display: flex;
