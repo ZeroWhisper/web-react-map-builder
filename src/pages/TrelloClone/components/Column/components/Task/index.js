@@ -1,14 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { Content } from './style';
+import { Creators as TaskCreators } from '~/store/ducks/task';
 
-const Task = ({ item = {}, position, column }) => {
+import { Content, TitleTask, ButtonDelete } from './style';
+
+const Task = ({ item = {}, position, column, taskDel }) => {
   function handleDrag(e) {
     const { position, column } = e.target.dataset;
-    const obj = JSON.stringify({ position, column });
+    const obj = JSON.stringify({ position, column, id: item.id });
     e.dataTransfer.setData('text', obj);
     // e.dataTransfer.setData('caixa', 'caixa');
     console.log('Arraastando', obj, position, column);
+  }
+
+  function handleRemoveButton(e) {
+    e.preventDefault();
+    console.log(item.id);
+    taskDel(item.id);
   }
 
   return (
@@ -18,19 +28,22 @@ const Task = ({ item = {}, position, column }) => {
       onDragStart={handleDrag}
       color={'white'}
       draggable>
-      {position} {item.title || null} <br />
-      {item.message || null}
+      <TitleTask>
+        {position} {item.title || null} <br />
+        {item.message || null}
+      </TitleTask>
+      <ButtonDelete onClick={handleRemoveButton}>REMOVE</ButtonDelete>
     </Content>
   );
 };
 
-const hex = () => {
-  const r = () => Math.floor(Math.random() * 256).toString(16);
-  return `#${r()}${r()}${r()}`;
-};
+// const hex = () => {
+//   const r = () => Math.floor(Math.random() * 256).toString(16);
+//   return `#${r()}${r()}${r()}`;
+// };
 
-// const mapDispatchToProps = dispatch =>
-//   bindActionCreators({ taskRequest: TaskCreators.taskRequest }, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ taskDel: TaskCreators.taskDel }, dispatch);
 
-// export default connect(null)(Task);
-export default Task;
+export default connect(null, mapDispatchToProps)(Task);
+// export default Task;

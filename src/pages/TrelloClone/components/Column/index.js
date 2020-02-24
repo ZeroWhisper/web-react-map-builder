@@ -1,21 +1,18 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, { Fragment, useState } from 'react';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 
-import { Creators as TaskCreators } from '~/store/ducks/task';
+import AppModal from '~/components/AppModal';
+// import { Creators as TaskCreators } from '~/store/ducks/task';
 
 import Task from './components/Task';
 import Space from './components/Space';
+import FormAdd from './components/FormAdd';
 
 import { Content, ShowColumn, Title, Header, Add } from './style';
 
-const Column = ({ tasks, column, taskRequest, taskFirebase }) => {
-  // const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    // setTasks(Array.from({ length: 10 }).map((e, i) => i));
-    taskFirebase();
-  }, []);
+const Column = ({ tasks, column }) => {
+  const [isOpen, setOpen] = useState(false);
 
   function handleDrop(e) {
     e.preventDefault();
@@ -23,23 +20,26 @@ const Column = ({ tasks, column, taskRequest, taskFirebase }) => {
     const oldPos = JSON.parse(str);
     const newPos = e.target.dataset;
     // const teste = e.dataTransfer.getData('caixa');
-    console.log('ANTIGA POS', JSON.parse(str), oldPos);
-    console.log('NOVA POS', e.target.dataset, newPos);
-  }
-
-  function addTask() {
-    // setTasks(e => [...e, { id: Math.random(), title: 'Titulo' }]);
-    taskRequest({ title: 'Titulo', message: 'Eu estou aqui' });
+    console.log('ANTIGA POS', oldPos);
+    console.log('NOVA POS', newPos);
+    // tasks.find(item => item.position == newPos);
   }
 
   if (!tasks) return null;
 
   return (
     <Content>
+      <AppModal isOpen={isOpen} onRequestClose={() => setOpen(false)}>
+        <FormAdd
+          previous={tasks[tasks.length - 1]}
+          column={column}
+          onRequestClose={() => setOpen(false)}
+        />
+      </AppModal>
       <ShowColumn onDragOver={nothing} onDrop={handleDrop}>
         <Header>
           <Title>{column}</Title>
-          <Add onClick={() => addTask()}>ADD</Add>
+          <Add onClick={() => setOpen(true)}>ADD</Add>
         </Header>
         <RenderTasks tasks={tasks} column={column} />
       </ShowColumn>
@@ -49,7 +49,7 @@ const Column = ({ tasks, column, taskRequest, taskFirebase }) => {
 
 const RenderTasks = ({ tasks, column }) => {
   return (
-    <>
+    <Fragment>
       <Space position={0} column={column} />
       {tasks.map((e, i) => (
         <Fragment key={String(i)}>
@@ -57,23 +57,29 @@ const RenderTasks = ({ tasks, column }) => {
           <Space position={i + 1} column={column} />
         </Fragment>
       ))}
-    </>
+    </Fragment>
   );
 };
 
 const nothing = e => e.preventDefault();
 
-const mapStateToProps = state => ({
-  tasks: state.task.data,
-});
+// const customSort = (a, b) => {
+//   if (a.position > b.position) return 1;
+//   if (a.position < b.position) return -1;
+//   return 0;
+// };
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      taskRequest: TaskCreators.taskRequest,
-      taskFirebase: TaskCreators.taskFirebase,
-    },
-    dispatch,
-  );
+// const mapStateToProps = state => ({
+//   tasks: state.task.data,
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Column);
+// const mapDispatchToProps = dispatch =>
+//   bindActionCreators(
+//     {
+//       taskUpdate: TaskCreators.taskUpdate,
+//     },
+//     dispatch,
+//   );
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Column);
+export default Column;

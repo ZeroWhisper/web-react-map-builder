@@ -8,8 +8,11 @@ export default function* rootSaga() {
   const list = [];
 
   list.push(spawn(TaskSaga.taskChannel));
-  list.push(takeLatest(TaskTypes.FIREBASE, TaskSaga.taskFirebase));
-  list.push(takeLatest(TaskTypes.REQUEST, TaskSaga.taskRequest));
+
+  list.push(takeLatest(TaskTypes.ADD, TaskSaga.taskAdd));
+  list.push(takeLatest(TaskTypes.DEL, TaskSaga.taskDel));
+  // list.push(takeLatest(TaskTypes.FIREBASE, TaskSaga.taskFirebase));
+  // list.push(takeLatest(TaskTypes.REQUEST, TaskSaga.taskRequest));
 
   yield all([...list]);
 }

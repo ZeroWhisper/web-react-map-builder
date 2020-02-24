@@ -1,4 +1,4 @@
-import { call, take, put, fork } from 'redux-saga/effects';
+import { call, take, put } from 'redux-saga/effects';
 // import CJSON from 'circular-json';
 import rsf from '~/service/firebase';
 // import rsf from 'redux-saga-firebase';
@@ -11,28 +11,48 @@ export function* taskChannel() {
   while (true) {
     const task = yield take(channel);
 
-    const res = [];
-    task.forEach(doc =>
-      res.push({
-        id: doc.id,
-        ...doc.data(),
-      }),
-    );
+    const result = [];
+    task.forEach(doc => result.push({ id: doc.id, ...doc.data() }));
 
-    // const res = task.map(doc => ({ id: doc.id, ...doc.data() }));
+    // const res = [];
+    // task.forEach(doc =>
+    //   res.push({
+    //     id: doc.id,
+    //     ...doc.data(),
+    //   }),
+    // );
 
-    // console.tron.log('TASK', CJSON.stringify(task));
-    yield put(TaskCreators.taskSuccess(res));
+    yield put(TaskCreators.taskSuccess(result));
   }
 }
 
-export function* taskRequest() {
-  const userData = {
-    title: 'Test12e',
-    message: 'test12e',
-  };
+export function* taskAdd({ payload }) {
+  yield call(rsf.firestore.addDocument, 'task', payload);
 
-  const doc = yield call(rsf.firestore.addDocument, 'task', {
+  // console.log(doc.data());
+}
+
+export function* taskDel({ payload }) {
+  yield call(rsf.firestore.deleteDocument, `task/${payload}`);
+
+  // console.log(doc.data());
+}
+
+export function* taskUpdate({ payload }) {
+  if (!payload) return;
+
+  const { id, field, value } = payload;
+
+  yield call(rsf.firestore.updateDocument, `task/${id}`, field, value);
+}
+
+export function* taskRequest() {
+  // const userData = {
+  //   title: 'Test12e',
+  //   message: 'test12e',
+  // };
+
+  yield call(rsf.firestore.addDocument, 'task', {
     title: 'Elon ' + Date.now(),
     message: 'Musk',
   });
@@ -57,9 +77,9 @@ export function* taskSuccess() {}
 export function* taskFailure() {}
 
 export function* taskFirebase() {
-  try {
-    console.log('TO AQUI');
-  } catch (e) {
-    console.log(e.message);
-  }
+  // try {
+  //   console.log('TO AQUI');
+  // } catch (e) {
+  //   console.log(e.message);
+  // }
 }

@@ -13,7 +13,8 @@ export const ShowColumn = styled.div`
   flex: 1;
   flex-shrink: 1;
   flex-direction: column;
-  background-color: white;
+  background-color: #dee;
+  /* background-color: #3d474d; */
   border: 1px solid #eaeaea;
   border-radius: 10px;
   padding: 10px;
@@ -31,7 +32,12 @@ export const Title = styled.h2`
   color: steelblue;
 `;
 
-export const Add = styled.button``;
+export const Add = styled.button`
+  background-color: darkseagreen;
+  padding: 5px;
+  border-radius: 6px;
+  color: white;
+`;
 
 export const Space = styled.div`
   display: flex;

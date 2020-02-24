@@ -9,4 +9,17 @@ export const Content = styled.div`
   /* margin: 20px 0; */
   box-shadow: 10px 11px 5px -8px rgba(0, 0, 0, 0.5);
   background-color: ${props => props.color || 'orange'};
+  flex-direction: column;
+`;
+
+export const TitleTask = styled.div`
+  display: flex;
+  flex: 8;
+  border: 1px solid red;
+`;
+
+export const ButtonDelete = styled.button`
+  flex: 2;
+  padding: 10px 20px;
+  border: 1px solid #eaeaea;
 `;

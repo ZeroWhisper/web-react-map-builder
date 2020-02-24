@@ -6,9 +6,10 @@ export const Type = {
   FIREBASE: `task/FIREBASE`,
 
   // CHANNLE: `task/CHANNLE`,
-  // FIREADD: `task/FIREADD`,
-  // FIREREM: `task/FIREREM`,
-  // FIREGET: `task/FIREGET`,
+  ADD: `task/ADD`,
+  DEL: `task/DEL`,
+  UPD: `task/UPD`,
+  GET: `task/GET`,
 };
 
 const INITIAL = {
@@ -37,9 +38,12 @@ export default (state = INITIAL, { type, payload }) => {
 };
 
 export const Creators = {
-  taskFirebase: payload => ({ type: Type.FIREBASE, payload }),
-
-  taskRequest: payload => ({ type: Type.REQUEST, payload }),
+  // taskFirebase: payload => ({ type: Type.FIREBASE, payload }),
+  // taskRequest: payload => ({ type: Type.REQUEST, payload }),
   taskSuccess: payload => ({ type: Type.SUCCESS, payload }),
-  taskFailure: payload => ({ type: Type.FAILURE, payload }),
+
+  taskAdd: payload => ({ type: Type.ADD, payload }),
+  taskDel: payload => ({ type: Type.DEL, payload }),
+  taskUpdate: payload => ({ type: Type.UPD, payload }),
+  // taskFailure: payload => ({ type: Type.FAILURE, payload }),
 };
