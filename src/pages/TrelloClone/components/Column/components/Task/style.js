@@ -10,6 +10,10 @@ export const Content = styled.div`
   box-shadow: 10px 11px 5px -8px rgba(0, 0, 0, 0.5);
   background-color: ${props => props.color || 'orange'};
   flex-direction: column;
+
+  & p {
+    padding: 5px;
+  }
 `;
 
 export const TitleTask = styled.div`

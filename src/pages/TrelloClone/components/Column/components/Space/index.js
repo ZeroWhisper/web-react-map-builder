@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import { Content } from './style';
 
 /*eslint eqeqeq: "off"*/
-const Space = ({ position, column }) => {
+const Space = ({ item = {}, column }) => {
   const [hover, setHover] = useState(null);
+
+  // if (!item) return null;
+  const { position = 50 } = item;
 
   function onDragOverTest(e) {
     e.preventDefault();

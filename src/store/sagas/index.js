@@ -11,6 +11,7 @@ export default function* rootSaga() {
 
   list.push(takeLatest(TaskTypes.ADD, TaskSaga.taskAdd));
   list.push(takeLatest(TaskTypes.DEL, TaskSaga.taskDel));
+  list.push(takeLatest(TaskTypes.UPD, TaskSaga.taskUpdate));
   // list.push(takeLatest(TaskTypes.FIREBASE, TaskSaga.taskFirebase));
   // list.push(takeLatest(TaskTypes.REQUEST, TaskSaga.taskRequest));
 

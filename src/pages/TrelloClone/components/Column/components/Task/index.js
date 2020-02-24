@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux';
 
 import { Creators as TaskCreators } from '~/store/ducks/task';
 
-import { Content, TitleTask, ButtonDelete } from './style';
+import { Content, ButtonDelete } from './style';
 
-const Task = ({ item = {}, position, column, taskDel }) => {
+const Task = ({ item = {}, taskDel }) => {
   function handleDrag(e) {
     const { position, column } = e.target.dataset;
     const obj = JSON.stringify({ position, column, id: item.id });
@@ -23,15 +23,18 @@ const Task = ({ item = {}, position, column, taskDel }) => {
 
   return (
     <Content
-      data-column={column}
-      data-position={position}
+      data-column={item.column}
+      data-position={item.position}
       onDragStart={handleDrag}
       color={'white'}
       draggable>
-      <TitleTask>
-        {position} {item.title || null} <br />
+      <p>Title: {item.title}</p>
+      <p>Position: {item.position}</p>
+      <p>Message: {item.message} </p>
+      {/* <TitleTask>
+        {item.position} {item.title || null} <br />
         {item.message || null}
-      </TitleTask>
+      </TitleTask> */}
       <ButtonDelete onClick={handleRemoveButton}>REMOVE</ButtonDelete>
     </Content>
   );

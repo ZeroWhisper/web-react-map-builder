@@ -13,6 +13,11 @@ export const Content = styled.form`
   }
 
   & button {
+    border: 1px solid lightgreen;
+    border-radius: 6px;
+    background-color: lightgreen;
+    color: white;
     margin: 10px;
+    padding: 10px;
   }
 `;
