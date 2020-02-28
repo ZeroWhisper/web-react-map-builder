@@ -39,13 +39,10 @@ const Column = ({ tasks, column, taskUpdate }) => {
 
       if (firstPosition > position) {
         value = firstPosition - 1;
-        // console.log('ANTES DO PRIMEIRO');
       } else if (lastPosition == position) {
         value = lastPosition + 100;
-        // console.log('IGUAL AO ULTIMO');
       } else {
         value = newPosition(listTasks, position);
-        // console.log('TO NO MEIO');
       }
       taskUpdate({ id, field: 'position', value });
     }
