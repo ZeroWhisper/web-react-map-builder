@@ -2,5 +2,6 @@
 
 export default (req, res) => {
   res.statusCode = 200;
+  // TO REMOVE
   res.json({ name: 'John Doe' });
 };
