@@ -2,7 +2,10 @@
 
 export default (req, res) => {
   res.statusCode = 200;
-  // Remove
   // Add
+  // console.group('Value Changed');
+  // console.log('newValue', field, newValue);
+  // console.log(`action: ${actionMeta.action}`);
+  // console.groupEnd();
   res.json({ name: 'John Doe' });
 };
