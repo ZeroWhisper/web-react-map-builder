@@ -14,29 +14,13 @@ export default createGlobalStyle`
   html, body, #root {
     ${css`
       height: 100%;
-      /* border: 10px solid red; */
     `}
   }
 
-  /*
-  #root {
-    ${
-      process.env.HEIGHT_PAGE === 'static'
-        ? css`
-            height: 100%;
-          `
-        : css`
-            display: flex;
-            flex: 1;
-          `
-    }
-  }
-  */
 
   body, input, button {
     font-size: 16px;
     font-family: ${fonts.general}, Roboto, Helvetica, sans-serif;
-    /* letter-spacing: 2.5px; */
     font-weight: 100;
   }
 
