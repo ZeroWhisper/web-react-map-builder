@@ -9,5 +9,3 @@ export default (req, res) => {
   // console.groupEnd();
   res.json({ name: 'John Doe' });
 };
-
-// Remove
