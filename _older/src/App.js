@@ -9,6 +9,7 @@ import GlobalStyle from '~/styles/global';
 
 // import Main from '~/pages/Main';
 import TrelloClone from '~/pages/TrelloClone';
+// teste
 
 function App() {
   return (
