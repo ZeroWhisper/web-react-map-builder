@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "git": "git config --global user.name ZeroWhisper && git config --global user.email marcos.devel@gmail.com",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
