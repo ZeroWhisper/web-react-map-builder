@@ -1,6 +1,6 @@
 // import '../styles/globals.css';
 
-// Teste asd
+// Teste
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
