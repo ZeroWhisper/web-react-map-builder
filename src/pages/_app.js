@@ -1,6 +1,6 @@
 // import '../styles/globals.css';
 
-// Teste 123
+// Teste
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
